@@ -18,6 +18,8 @@ cd .\Environment
 Get-Item .
 Get-ItemProperty .
 
+if ((Get-ItemProperty -Path "HKCU:\Environment") -match "Path") {write-host "yes"} else {write-host "no"}
+
 # View Path variable (2 ways)
 Get-ItemProperty . | Select Path
 Get-ItemPropertyValue -Name Path     ## This way returns a string!
